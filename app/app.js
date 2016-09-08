@@ -5,9 +5,11 @@ define([
   'angularUiRouter',
   'angularMaterial',
   'angularMaterialIcons',
-], function(angular, angularUiRouter, angularMaterial, angularMaterialIcons) {
+  'modules/dynamic-pages/dynamic-pages',
+//  'modules/dynamic-pages/controllers/simple',
+], function(angular, angularUiRouter, angularMaterial, angularMaterialIcons, dynamicPages, simple) {
 
-  return angular
+  var app = angular
     .module('testAngular', [
       'ui.router',
       'ngAnimate', 
@@ -15,19 +17,34 @@ define([
       'ngAria', 
       'ngMaterial',
       'ngMdIcons',
+      'testAngular.dynamicPages'
     ])
-    .config(['$urlRouterProvider', '$mdThemingProvider', function($urlRouterProvider, $mdThemingProvider) {
-      //$urlRouterProvider.otherwise({redirectTo: '/'});
+  app
+    .config(['$urlRouterProvider', '$mdThemingProvider', '$controllerProvider', function($urlRouterProvider, $mdThemingProvider, $controllerProvider) {
+      //$urlRouterProvider
+      //  .otherwise('dynamic-pages/');
 
       $mdThemingProvider.theme('default')
         .primaryPalette('light-blue')
-        .accentPalette('cyan');
+        .accentPalette('red');
+
+      app.controller = $controllerProvider.register;
 
     }])
-    .controller('MainController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
+    .controller('MainController', ['$scope', '$mdSidenav', 'commonService', function($scope, $mdSidenav, commonService) {
       $scope.toggleSidenav = function() {
         $mdSidenav('left').toggle();
       };
+      $scope.common = commonService.getCommon();
     }])
-    ;
+    .service('commonService', [function() {
+      var commonData = {};
+      this.setTitle = function(title) {
+        return commonData.title = title;
+      }
+      this.getCommon = function() {
+        return commonData;
+      }
+    }]);
+  return app;
 });

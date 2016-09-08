@@ -1,0 +1,14 @@
+
+<md-list >
+  <md-subheader class="md-no-sticky">Pick a page:</md-subheader>
+  <md-divider></md-divider>
+  <md-list-item class="md-2-line" ng-repeat="page in dynamicPages" ui-sref="dynamic-pages.show({pageSlug: page})" >
+    <div class="md-list-item-text" layout="column">
+      <h3>{{ page }}</h3>
+      <p>page #{{$index+1}}</p>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>
+
+<ui-view ></ui-view>

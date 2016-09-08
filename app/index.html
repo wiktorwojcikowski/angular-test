@@ -7,21 +7,21 @@
 	<link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
 	<link rel="stylesheet" href="app.css">
 </head>
-<body>
+<body ng-cloak>
 
 	<section layout="row" layout-fill ng-controller="MainController">
 
-	  <md-sidenav layout="column" class="md-sidenav-left md-accent md-whiteframe-z2 " 
+	  <md-sidenav layout="column" class="md-sidenav-left md-primary md-whiteframe-z2 " 
 	      md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-	    <md-toolbar class="inset">
+	    <md-toolbar >
 	        <h1 class="md-toolbar-tools">AngularTest</h1>
 	      </div>
 	    </md-toolbar>
 	    <md-list>
-	      <md-list-item ui-sref="task-one" ui-sref-active="active" >
+	      <md-list-item ui-sref="dynamic-pages" ui-sref-active="active" >
 	        <md-item-content layout="row" layout-align="start center">
-	          <ng-md-icon icon="test"></ng-md-icon>
-	          <div class="inset">Task one</div>
+	          <ng-md-icon icon="sync"></ng-md-icon>
+	          <div class="inset">Dynamic Pages</div>
 	        </md-item-content>
 	      </md-list-item>
 	    </md-list>
@@ -34,7 +34,7 @@
 	        <md-button ng-click="toggleSidenav()" hide-gt-md aria-label="Menu">
 	          <ng-md-icon icon="menu"></ng-md-icon>
 	        </md-button>
-
+	        {{common.title}}
 	        <span flex></span>
 
 	      </div>
