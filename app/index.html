@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TestAngular</title>
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+	<link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+	<section layout="row" layout-fill ng-controller="MainController">
+
+	  <md-sidenav layout="column" class="md-sidenav-left md-accent md-whiteframe-z2 " 
+	      md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+	    <md-toolbar class="inset">
+	        <h1 class="md-toolbar-tools">AngularTest</h1>
+	      </div>
+	    </md-toolbar>
+	    <md-list>
+	      <md-list-item ui-sref="task-one" ui-sref-active="active" >
+	        <md-item-content layout="row" layout-align="start center">
+	          <ng-md-icon icon="test"></ng-md-icon>
+	          <div class="inset">Task one</div>
+	        </md-item-content>
+	      </md-list-item>
+	    </md-list>
+	  </md-sidenav>
+
+	  <div layout="column" class="relative" layout-fill role="main">
+
+	    <md-toolbar >
+	      <div class="md-toolbar-tools">
+	        <md-button ng-click="toggleSidenav()" hide-gt-md aria-label="Menu">
+	          <ng-md-icon icon="menu"></ng-md-icon>
+	        </md-button>
+
+	        <span flex></span>
+
+	      </div>
+	    </md-toolbar>
+	    
+	    <md-content md-scroll-y class="" >
+	      <ui-view layout-fill ></ui-view>
+	    </md-content>
+	    
+	  </div>
+	</section>
+
+	<script data-main="require-config" src="bower_components/requirejs/require.js"></script>
+</body>
+</html>
