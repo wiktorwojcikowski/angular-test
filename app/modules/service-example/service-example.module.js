@@ -4,29 +4,20 @@ define([
   'angular'
 ], function(angular) {
 
-  angular.module('testAngular.simpleService', ['ui.router'])
+  angular.module('testAngular.serviceExample', ['ui.router'])
   .config(['$stateProvider', function($stateProvider) {
 
     $stateProvider
-      .state('simple-service-form', {
-        url: 'simple-service-form/',
-        templateUrl: 'modules/simple-service/form.html',
+      .state('service-form', {
+        url: 'service-form/',
+        templateUrl: 'modules/service-example/form.html',
         controller: 'FormController'
       })
-      .state('simple-service-value', {
-        url: 'simple-service-value/',
-        templateUrl: 'modules/simple-service/value.html',
+      .state('service-value', {
+        url: 'service-value/',
+        templateUrl: 'modules/service-example/value.html',
         controller: 'ValueController'
       })
-  }])
-  .service('simpleService', [function() {
-    var value = '';
-    this.setValue = function(v) {
-      value = v;
-    }
-    this.getValue = function() {
-      return value;
-    }
   }])
   .controller('FormController', ['$scope', 'simpleService', 'commonService', function($scope, simpleService, commonService) {
     commonService.setTitle('Simple Service - Set value');
