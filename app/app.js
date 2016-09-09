@@ -7,10 +7,14 @@ define([
   'services/common.service',
   'services/simple.service',
 
+  'directives/phone-number/phone-number.directive',
+  'directives/currency/currency.directive',
+
   'modules/dynamic-pages/dynamic-pages.module',
   'modules/service-example/service-example.module',
   'modules/array/array.module',
-  'modules/directive-examples/directive-examples.module',
+  'modules/directives-examples/directives-examples.module',
+  'modules/calculator/calculator.module',
 
 ], function(angular, appModule, commonService, simpleService) {
 

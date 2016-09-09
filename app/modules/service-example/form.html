@@ -1,13 +1,17 @@
-<form flex layout-padding layout="row" ng-submit="save()" >
+<md-content layout-padding >
 
-  <md-input-container flex>
-    <label>Service Value</label>
-    <input ng-model="value">
-  </md-input-container>
+  <form layout="row" ng-submit="save()" >
 
-  <div flex >
-    <md-button class="md-raised md-primary" >Save</md-button>
-    <span ng-show="saved" >Saved! <md-button ui-sref="simple-service-value" class="md-accent" >Go to preview page.</md-button></span>
-  </div>
+    <md-input-container flex >
+      <label>Service Value</label>
+      <input ng-model="value">
+    </md-input-container>
 
-</form>
+    <div flex >
+      <md-button class="md-raised md-primary" >Save</md-button>
+      <span ng-show="saved" >Saved! <md-button ui-sref="service-value" class="md-accent" >Go to preview page.</md-button></span>
+    </div>
+
+  </form>
+
+</md-content>

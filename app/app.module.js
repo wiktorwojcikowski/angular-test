@@ -17,8 +17,9 @@ define([
       'ngMdIcons',
       'testAngular.dynamicPages',
       'testAngular.serviceExample',
-      'testAngular.directiveExamples',
-      'testAngular.array'
+      'testAngular.directivesExamples',
+      'testAngular.array',
+      'testAngular.calculator',
     ])
   app
     .config(['$urlRouterProvider', '$mdThemingProvider', '$controllerProvider', function($urlRouterProvider, $mdThemingProvider, $controllerProvider) {
