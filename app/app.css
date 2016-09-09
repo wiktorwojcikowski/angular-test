@@ -17,71 +17,76 @@ md-list-item.active {
 
 
 
-table.md-table {
+table.data-table {
   width: 100%;
   border-spacing: 0;
   overflow: hidden;
 }
-table.md-table thead > tr {
+table.data-table thead > tr {
   height: 56px;
 }
-table.md-table tbody > tr,
-table.md-table tfoot > tr {
+table.data-table tbody > tr,
+table.data-table tfoot > tr {
   height: 48px;
 }
-table.md-table th {
+table.data-table th {
   color: rgba(0, 0, 0, 0.54);
   font-size: 12px;
   font-weight: bold;
   white-space: nowrap;
   cursor: pointer;
 }
-table.md-table th md-icon {
+table.data-table th:focus {
+  outline: none;
+  border: none;
+}
+table.data-table th md-icon {
   height: 16px;
   width: 16px;
   font-size: 16px !important;
   line-height: 16px !important;
 }
-table.md-table th .md-sort-icon {
+table.data-table th .md-sort-icon {
   color: rgba(0, 0, 0, 0.26);
   opacity: 0;
   transition: -webkit-transform 0.25s, opacity 0.25s;
   transition: transform 0.25s, opacity 0.25s;
 }
-table.md-table th.md-asc .md-sort-icon {
-  opacity: 1;
+table.data-table th.md-asc .md-sort-icon {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
 }
-table.md-table th.md-desc .md-sort-icon {
-  opacity: 1;
+table.data-table th.md-desc .md-sort-icon {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-table.md-table th md-icon:not(:first-child) {
+table.data-table th.md-current .md-sort-icon {
+  opacity: 1;
+}
+table.data-table th md-icon:not(:first-child) {
   margin-left: 8px;
 }
-table.md-table th md-icon:not(:last-child) {
+table.data-table th md-icon:not(:last-child) {
   margin-right: 8px;
 }
-table.md-table td,
-table.md-table th {
+table.data-table td,
+table.data-table th {
   vertical-align: middle;
   text-align: left;
 }
-table.md-table td > *,
-table.md-table th > * {
+table.data-table td > *,
+table.data-table th > * {
   vertical-align: middle;
 }
-table.md-table td:last-child,
-table.md-table th:last-child {
+table.data-table td:last-child,
+table.data-table th:last-child {
   padding: 0 24px 0 0;
 }
-table.md-table td.md-numeric,
-table.md-table th.md-numeric {
+table.data-table td.md-numeric,
+table.data-table th.md-numeric {
   text-align: right;
 }
-table.md-table td {
+table.data-table td {
   color: rgba(0, 0, 0, 0.87);
   font-size: 13px;
   border-top: 1px rgba(0, 0, 0, 0.12) solid;

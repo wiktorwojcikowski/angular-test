@@ -1,10 +1,16 @@
 <md-content layout-padding >
-  <table class="md-table" >
+
+  <md-input-container class="md-block" style="margin-bottom: 0px;" >
+    <label><ng-md-icon icon="search"></ng-md-icon> Search in table</label>
+    <input ng-model="q" ng-change="filter()">
+  </md-input-container>
+
+  <table class="data-table" >
     <thead>
       <tr>
-        <th>First name <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
-        <th>Last name <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
-        <th>Age <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
+        <th ng-click="sortBy('first')" class="md-{{sortType}}" ng-class="{'md-current': sortCol=='first'}" >First name <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
+        <th ng-click="sortBy('last')" class="md-{{sortType}}" ng-class="{'md-current': sortCol=='last'}" >Last name <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
+        <th ng-click="sortBy('age')" class="md-{{sortType}}" ng-class="{'md-current': sortCol=='age'}" >Age <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
       </tr>
     </thead>
     <tbody>

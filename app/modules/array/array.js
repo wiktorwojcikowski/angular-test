@@ -15,17 +15,43 @@ define([
       })
   }])
   .controller('ArrayController', ['$scope', 'commonService', 'data', function($scope,commonService, data) {
-    commonService.setTitle('Array - sort and filter');
-    $scope.data = data;
+    commonService.setTitle('Array - Sort and filter');
+    $scope.data = [];
+    $scope.sortCol = 'first';
+    $scope.sortType = 'asc';
+    $scope.q = '';
 
-    $scope.sort = function(column, reverse) {
-      data.sort(function(a, b) {return a[column] < b[column]})
-      if (reverse) {
-        data.reverse();
+    var sort = function() {
+      $scope.data.sort(function(a, b) { 
+        if(a[$scope.sortCol] < b[$scope.sortCol])
+          return -1;
+        if(a[$scope.sortCol] > b[$scope.sortCol])
+          return 1;
+        return 0;
+      });
+      if ($scope.sortType == 'desc') {
+        $scope.data.reverse();
       }
+    }
+
+    $scope.sortBy = function(column) {
+      if ($scope.sortCol == column && $scope.sortType == 'asc') {
+        $scope.sortType = 'desc';
+      } else {
+        $scope.sortCol = column;
+        $scope.sortType = 'asc';
+      }
+      sort();
     };
     $scope.filter = function() {
-    }
+      $scope.data = data.filter(function (item) {
+        var re = new RegExp($scope.q, "i");
+        return re.test(item.first) || re.test(item.last) || re.test(item.age.toString());
+      });
+      sort();
+    };
+
+    $scope.filter();
 
   }])
   .controller('ValueController', ['$scope', 'simpleService', 'commonService', function($scope, simpleService, commonService) {
