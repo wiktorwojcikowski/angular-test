@@ -17,32 +17,65 @@ define([
   .controller('ArrayController', ['$scope', 'commonService', 'data', function($scope,commonService, data) {
     commonService.setTitle('Array - Sort and filter');
     $scope.data = [];
-    $scope.sortCol = 'first';
-    $scope.sortType = 'asc';
     $scope.q = '';
+    $scope.sortKeys = {};
+    $scope.sortOrder = [];
 
-    var sort = function() {
-      $scope.data.sort(function(a, b) { 
-        if(a[$scope.sortCol] < b[$scope.sortCol])
-          return -1;
-        if(a[$scope.sortCol] > b[$scope.sortCol])
-          return 1;
+    var compare = function(a, b, i) {
+      if (i >= $scope.sortOrder.length) { 
         return 0;
-      });
-      if ($scope.sortType == 'desc') {
-        $scope.data.reverse();
       }
+
+      var column = $scope.sortOrder[i];
+      if(a[column] < b[column])
+        return $scope.sortKeys[column] == 'asc' ? -1 : 1;
+      if(a[column] > b[column])
+        return $scope.sortKeys[column] == 'asc' ? 1 : -1;
+      return compare(a, b, i+1);
     }
 
-    $scope.sortBy = function(column) {
-      if ($scope.sortCol == column && $scope.sortType == 'asc') {
-        $scope.sortType = 'desc';
+    var sort = function() {
+      $scope.data.sort(function(a, b) {
+        return compare(a, b, 0);
+      });
+    }
+
+    $scope.addSort = function(column) {
+      if ($scope.sortKeys[column] != undefined) {
+        var i = $scope.sortOrder.indexOf(column);
+        if (i == 0) {
+          if ($scope.sortKeys[column] == 'asc') {
+            $scope.sortKeys[column] = 'desc';
+          } else {
+            $scope.removeSort(column);
+          }
+        } else {
+          $scope.sortOrder.splice(i, 1);
+          $scope.sortKeys[column] = 'asc';
+          $scope.sortOrder.unshift(column);
+        }
       } else {
-        $scope.sortCol = column;
-        $scope.sortType = 'asc';
+        $scope.sortKeys[column] = 'asc';
+        $scope.sortOrder.unshift(column);
       }
       sort();
     };
+
+    $scope.removeSort = function(column) {
+      if ($scope.sortKeys[column] != undefined) {
+        var i = $scope.sortOrder.indexOf(column);
+        $scope.sortOrder.splice(i, 1);
+        delete $scope.sortKeys[column];
+      }
+      sort();
+    };
+
+    $scope.resetSort = function() {
+      $scope.sortOrder = [];
+      $scope.sortKeys = {};
+      sort();
+    };
+
     $scope.filter = function() {
       $scope.data = data.filter(function (item) {
         var re = new RegExp($scope.q, "i");
@@ -97,9 +130,9 @@ define([
       "age": 23
     },
     {
-      "first": "Eliza",
+      "first": "Ann",
       "last": "Bentley",
-      "age": 35
+      "age": 23
     },
     {
       "first": "Compton",
@@ -112,7 +145,7 @@ define([
       "age": 35
     },
     {
-      "first": "Elsa",
+      "first": "Casey",
       "last": "Lynn",
       "age": 37
     },
@@ -122,7 +155,7 @@ define([
       "age": 40
     },
     {
-      "first": "Nita",
+      "first": "Abigail",
       "last": "Guy",
       "age": 25
     },
