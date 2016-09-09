@@ -9,7 +9,7 @@ define([
 
     $stateProvider
       .state('directives-examples', {
-        url: 'directives-examples/',
+        url: '/directives-examples/',
         templateUrl: 'modules/directives-examples/examples.html',
         controller: 'ExamplesController'
       })

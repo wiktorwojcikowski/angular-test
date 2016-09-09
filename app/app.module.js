@@ -24,8 +24,8 @@ define([
     ])
   app
     .config(['$urlRouterProvider', '$mdThemingProvider', '$controllerProvider', function($urlRouterProvider, $mdThemingProvider, $controllerProvider) {
-      //$urlRouterProvider
-      //  .otherwise('dynamic-pages/');
+      $urlRouterProvider
+        .otherwise('/dynamic-pages/');
 
       $mdThemingProvider.theme('default')
         .primaryPalette('light-blue')

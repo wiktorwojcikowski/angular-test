@@ -9,7 +9,7 @@ define([
 
     $stateProvider
       .state('array', {
-        url: 'array/',
+        url: '/array/',
         templateUrl: 'modules/array/table.html',
         controller: 'ArrayController'
       })

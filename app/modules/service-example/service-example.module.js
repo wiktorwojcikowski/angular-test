@@ -9,7 +9,7 @@ define([
 
     $stateProvider
       .state('service-form', {
-        url: 'service-form/',
+        url: '/service-form/',
         templateUrl: 'modules/service-example/form.html',
         controller: 'FormController'
       })

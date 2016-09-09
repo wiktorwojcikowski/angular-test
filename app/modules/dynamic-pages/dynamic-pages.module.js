@@ -24,12 +24,12 @@ define([
 
     $stateProvider
       .state('dynamic-pages', {
-        url: 'dynamic-pages/',
+        url: '/dynamic-pages/',
         templateUrl: 'modules/dynamic-pages/list.html',
         controller: 'ListController'
       })
       .state('dynamic-pages.show', {
-        url: '{pageUrl:url}',
+        url: '{pageUrl:url}/',
         resolve: {
           controller: ['$stateParams', '$q', function($stateParams, $q) {
             return $q(function(resolve, reject) {

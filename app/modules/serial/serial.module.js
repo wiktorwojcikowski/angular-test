@@ -9,7 +9,7 @@ define([
 
     $stateProvider
       .state('serial', {
-        url: 'serial/',
+        url: '/serial/',
         templateUrl: 'modules/serial/serial.html',
         controller: 'SerialController'
       })

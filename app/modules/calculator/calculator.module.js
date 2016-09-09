@@ -9,7 +9,7 @@ define([
 
     $stateProvider
       .state('calculator', {
-        url: 'calculator/',
+        url: '/calculator/',
         templateUrl: 'modules/calculator/calculator.html',
         controller: 'CalculatorController'
       })
