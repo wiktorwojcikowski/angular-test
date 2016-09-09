@@ -1,0 +1,18 @@
+<md-content layout-padding >
+  <table class="md-table" >
+    <thead>
+      <tr>
+        <th>First name <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
+        <th>Last name <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
+        <th>Age <ng-md-icon icon="arrow_downward" class="md-sort-icon" ></ng-md-icon></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="entry in data" >
+        <td>{{entry.first}}</td>
+        <td>{{entry.last}}</td>
+        <td>{{entry.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-content>

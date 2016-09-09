@@ -4,7 +4,7 @@ define([
   'app'
 ], function(app) {
 
-  app.controller('simple2Controller', ['$scope', function($scope) {
+  app.controller('Simple2Controller', ['$scope', function($scope) {
     
   }]);
 });

@@ -1,0 +1,13 @@
+<md-content flex layout-padding layout="row" >
+
+  <md-input-container flex>
+    <label>Service Value</label>
+    <input ng-model="value">
+  </md-input-container>
+
+  <div flex >
+    <md-button class="md-raised md-primary" ng-click="save()" >Save</md-button>
+    <span ng-show="saved" >Saved! <md-button ui-sref="simple-service-value" class="md-accent" >Go to preview page.</md-button></span>
+  </div>
+
+</md-content>

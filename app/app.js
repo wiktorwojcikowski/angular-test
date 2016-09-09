@@ -6,8 +6,9 @@ define([
   'angularMaterial',
   'angularMaterialIcons',
   'modules/dynamic-pages/dynamic-pages',
-//  'modules/dynamic-pages/controllers/simple',
-], function(angular, angularUiRouter, angularMaterial, angularMaterialIcons, dynamicPages, simple) {
+  'modules/simple-service/simple-service',
+  'modules/array/array',
+], function(angular, angularUiRouter, angularMaterial, angularMaterialIcons, dynamicPages, simpleService) {
 
   var app = angular
     .module('testAngular', [
@@ -17,7 +18,9 @@ define([
       'ngAria', 
       'ngMaterial',
       'ngMdIcons',
-      'testAngular.dynamicPages'
+      'testAngular.dynamicPages',
+      'testAngular.simpleService',
+      'testAngular.array'
     ])
   app
     .config(['$urlRouterProvider', '$mdThemingProvider', '$controllerProvider', function($urlRouterProvider, $mdThemingProvider, $controllerProvider) {

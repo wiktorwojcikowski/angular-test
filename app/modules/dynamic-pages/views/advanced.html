@@ -1,0 +1,9 @@
+<h2>Vivamus sit amet justo dui.</h2>
+<p >
+  Vestibulum ut tellus ut ligula mollis fermentum. Aliquam bibendum ipsum et risus dictum, ut malesuada turpis malesuada. Donec tempor pharetra nunc in laoreet.
+</p>
+<md-list flex>
+  <md-list-item ui-sref="dynamic-pages.show({pageUrl: [$state.params.pageUrl[0], 'info'] })" ><div class="md-list-item-text">Page info</div></md-list-item>
+  <md-list-item ui-sref="dynamic-pages.show({pageUrl: [$state.params.pageUrl[0], 'service'] })" >Service value</md-list-item>
+  <md-list-item ui-sref="dynamic-pages.show({pageUrl: [$state.params.pageUrl[0], 'static'] })" >Static content</md-list-item>
+</md-list>

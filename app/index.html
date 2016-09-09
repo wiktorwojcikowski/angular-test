@@ -24,6 +24,24 @@
 	          <div class="inset">Dynamic Pages</div>
 	        </md-item-content>
 	      </md-list-item>
+	      <md-list-item ui-sref="simple-service-form" ui-sref-active="active" >
+	        <md-item-content layout="row" layout-align="start center">
+	          <ng-md-icon icon="mode_edit"></ng-md-icon>
+	          <div class="inset">Service Form</div>
+	        </md-item-content>
+	      </md-list-item>
+	      <md-list-item ui-sref="simple-service-value" ui-sref-active="active" >
+	        <md-item-content layout="row" layout-align="start center">
+	          <ng-md-icon icon="list"></ng-md-icon>
+	          <div class="inset">Service Value</div>
+	        </md-item-content>
+	      </md-list-item>
+	      <md-list-item ui-sref="array" ui-sref-active="active" >
+	        <md-item-content layout="row" layout-align="start center">
+	          <ng-md-icon icon="list"></ng-md-icon>
+	          <div class="inset">Array</div>
+	        </md-item-content>
+	      </md-list-item>
 	    </md-list>
 	  </md-sidenav>
 
@@ -41,7 +59,7 @@
 	    </md-toolbar>
 	    
 	    <md-content md-scroll-y class="" >
-	      <ui-view layout-fill ></ui-view>
+	      <ui-view layout-fill class="ui-view-container" ></ui-view>
 	    </md-content>
 	    
 	  </div>
