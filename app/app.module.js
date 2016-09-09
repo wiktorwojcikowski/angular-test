@@ -20,6 +20,7 @@ define([
       'testAngular.directivesExamples',
       'testAngular.array',
       'testAngular.calculator',
+      'testAngular.serial',
     ])
   app
     .config(['$urlRouterProvider', '$mdThemingProvider', '$controllerProvider', function($urlRouterProvider, $mdThemingProvider, $controllerProvider) {

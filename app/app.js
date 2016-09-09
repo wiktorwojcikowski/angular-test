@@ -15,6 +15,7 @@ define([
   'modules/array/array.module',
   'modules/directives-examples/directives-examples.module',
   'modules/calculator/calculator.module',
+  'modules/serial/serial.module',
 
 ], function(angular, appModule, commonService, simpleService) {
 
